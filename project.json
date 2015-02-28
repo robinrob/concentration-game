@@ -11,8 +11,9 @@
     "modules" : ["cocos2d"],
 
     "jsList" : [
+        "src/CompositeSprite.js",
         "src/gamescript.js",
         "src/loadassets.js",
-        "src/CompositeSprite.js"
+        "src/ui.js"
     ]
 }
