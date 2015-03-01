@@ -14,6 +14,7 @@
         "src/CompositeSprite.js",
         "src/gamescript.js",
         "src/loadassets.js",
+        "src/Tile.js",
         "src/ui.js"
     ]
 }
