@@ -75,17 +75,6 @@ var GameLayer = cc.Layer.extend({
                 tile.toggle()
             }
         }, this)
-
-        if (match) {
-            ++this.pairs
-            this.checkFinished()
-        }
-    },
-
-    checkFinished: function() {
-        if (this.pairs == (this.nTiles / 2)) {
-            this.addChild(new RestartLayer(), 2)
-        }
     },
 
     checkMatch: function(tiles) {
