@@ -12,8 +12,12 @@
 
     "jsList" : [
         "src/CompositeSprite.js",
-        "src/gamescript.js",
-        "src/loadassets.js",
+        "src/GameLayer.js",
+        "src/GameScene.js",
+        "src/globals.js",
+        "src/StartScene.js",
+        "src/RestartLayer.js",
+        "src/StartLayer.js",
         "src/Tile.js",
         "src/ui.js"
     ]

@@ -6,7 +6,7 @@ var Tile = CompositeSprite.extend({
     _found: null,
 
     ctor:function(num) {
-        this._super(["assets/tile_bg.png", "assets/tile_cover.png"])
+        this._super([mrrobinsmith.res.tile_bg, mrrobinsmith.res.tile_cover])
 
         this.tag = num
         this._start_color = this.color
@@ -18,9 +18,7 @@ var Tile = CompositeSprite.extend({
     },
 
     _touchAction: function() {
-        if (!this.isTurned()) {
-            this.turnOver()
-        }
+        this.turnOver()
     },
 
     isTurned: function() {
@@ -32,12 +30,29 @@ var Tile = CompositeSprite.extend({
     },
 
     turnOver: function() {
-        ++counter
-        if (counter <= 2) {
-            this.switch()
+        if (!this.isTurned()) {
+            if (mrrobinsmith.counter < 2) {
+                this.toggle()
+            }
+        }
+        ++mrrobinsmith.counter
+        if (mrrobinsmith.counter > 2) {
+            this.getParent().checkPairs()
+        }
+    },
+
+    toggle: function() {
+        this.removeAllChildren()
+
+        this.toggleIsTurned()
+
+        if (this.isTurned()) {
+            this.addChildren([mrrobinsmith.res["tile" + this.tag]])
+            this.setColor(tileColors[this.tag])
         }
         else {
-            this.getParent().checkPairs()
+            this.addChildren([mrrobinsmith.res.tile_cover])
+            this.color = this._start_color
         }
     },
 
@@ -47,26 +62,6 @@ var Tile = CompositeSprite.extend({
 
     lock: function() {
         this._isLocked = true
-    },
-
-    switch: function() {
-        if (!this.isLocked()) {
-            this.removeAllChildren()
-
-            if (this.isTurned()) {
-                this.addChildren(["assets/tile_cover.png"])
-                this.color = this._start_color
-            }
-            else {
-                this.addChildren(["assets/tile_" + this.tag + ".png"])
-                this.setColor(tileColors[this.tag])
-            }
-            this.toggleIsTurned()
-        }
-    },
-
-    isTurned: function() {
-        return this._isTurned
     },
 
     found: function() {
