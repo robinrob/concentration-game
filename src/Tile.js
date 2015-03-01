@@ -2,20 +2,13 @@ var Tile = CompositeSprite.extend({
     tag: null,
 
     ctor:function(num) {
-        if (num >= 0) {
-            this.tag = num
-            this._super(["assets/tile_bg.png", "assets/tile_" + this.tag + ".png"])
+        this.tag = num
 
-            this.setCompColor(0, tileColors[this.tag])
-        }
-        else {
-            this.tag = -1
-            this._super(["assets/tile_bg.png", "assets/tile_cover.png"])
-        }
-        cc.eventManager.addListener(this._listener(), this);
+        this._super(["assets/tile_bg.png", "assets/tile_cover.png"])
+        cc.eventManager.addListener(this._listener(this._touchAction), this);
     },
 
-    _listener: function() {
+    _listener: function(callBack) {
         var listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
@@ -25,10 +18,15 @@ var Tile = CompositeSprite.extend({
                 var targetSize = target.getContentSize();
                 var targetRectangle = cc.rect(0, 0, targetSize.width, targetSize.height);
                 if (cc.rectContainsPoint(targetRectangle, location)) {
-                    console.log("I picked a tile!!");
+                    callBack.apply(target)
                 }
             }
         })
         return listener
+    },
+
+    _touchAction: function() {
+        this.init(["assets/tile_bg.png", "assets/tile_" + this.tag + ".png"])
+        this.setChildColor(1, tileColors[this.tag])
     }
 });

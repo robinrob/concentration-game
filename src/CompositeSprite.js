@@ -4,11 +4,12 @@ var CompositeSprite = cc.Sprite.extend({
     ctor: function (resources) {
         var child, childX, childY
         cc.log("Sprite.ctor ...")
-        //1. call super class's ctor function
         this._super(resources.shift());
 
-        this.components = [this].concat(this.resources)
+        this.init(resources)
+    },
 
+    init: function(resources) {
         resources.forEach(function(res, index){
             child = new cc.Sprite(res)
             childX = this.x + this.width / 2
@@ -17,6 +18,8 @@ var CompositeSprite = cc.Sprite.extend({
             // Add children at successively higher z-values in order to stack them on top of each other.
             this.addChild(child, index)
         }, this)
+
+        this.components = [this].concat(this.getChildren())
     },
 
     setCompColor: function (i, color) {
