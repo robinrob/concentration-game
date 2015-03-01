@@ -29,13 +29,11 @@ var GameLayer = cc.Layer.extend({
         var menuItemPlay = new cc.MenuItemSprite(
             ui.restartButton().normal,
             ui.restartButton().selected,
-            this.onRestart, this);
+            this.reset, this);
         var menu = new cc.Menu(menuItemPlay);
         menu.setPosition(centerPos);
         this.addChild(menu, 2);
 
-        cc.log("GameOver.init ...")
-        this._super(cc.color(0, 0, 0, 180));
         var winSize = cc.director.getWinSize();
 
         this.tiles = []
