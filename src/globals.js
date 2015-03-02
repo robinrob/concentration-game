@@ -31,27 +31,27 @@ var g = {
 }
 
 var res = {
-    button_outer_png: "assets/buttons/button-outer.png",
+    button_outer_png: "res/buttons/button-outer.png",
 
-    button_n_inner_png: "assets/buttons/button_n-inner.png",
-    button_s_inner_png: "assets/buttons/button_s-inner.png",
+    button_n_inner_png: "res/buttons/button_n-inner.png",
+    button_s_inner_png: "res/buttons/button_s-inner.png",
 
-    start_n_text_png: "assets/buttons/start_n-text.png",
-    start_s_text_png: "assets/buttons/start_s-text.png",
+    start_n_text_png: "res/buttons/start_n-text.png",
+    start_s_text_png: "res/buttons/start_s-text.png",
 
-    restart_n_text_png: "assets/buttons/restart_n-text.png",
-    restart_s_text_png: "assets/buttons/restart_s-text.png",
+    restart_n_text_png: "res/buttons/restart_n-text.png",
+    restart_s_text_png: "res/buttons/restart_s-text.png",
 
-    tile_bg: "assets/tiles/tile_bg.png",
-    tile_cover: "assets/tiles/tile_cover.png",
-    tile0: "assets/tiles/tile_0.png",
-    tile1: "assets/tiles/tile_1.png",
-    tile2: "assets/tiles/tile_2.png",
-    tile3: "assets/tiles/tile_3.png",
-    tile4: "assets/tiles/tile_4.png",
-    tile5: "assets/tiles/tile_5.png",
-    tile6: "assets/tiles/tile_6.png",
-    tile7: "assets/tiles/tile_7.png"
+    tile_bg: "res/tiles/tile_bg.png",
+    tile_cover: "res/tiles/tile_cover.png",
+    tile0: "res/tiles/tile_0.png",
+    tile1: "res/tiles/tile_1.png",
+    tile2: "res/tiles/tile_2.png",
+    tile3: "res/tiles/tile_3.png",
+    tile4: "res/tiles/tile_4.png",
+    tile5: "res/tiles/tile_5.png",
+    tile6: "res/tiles/tile_6.png",
+    tile7: "res/tiles/tile_7.png"
 };
 
 mrrobinsmith.g = g

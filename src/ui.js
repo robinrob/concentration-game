@@ -1,10 +1,10 @@
 var ui = {
     coverTile: function() {
-        return new CompositeSprite(["assets/tile_bg.png", "assets/tile_cover.png"]);
+        return new CompositeSprite(["res/tile_bg.png", "res/tile_cover.png"]);
     },
 
     tile: function(n) {
-        return new CompositeSprite(["assets/tile_bg.png", "assets/tile_" + n + ".png"]).setCompColor(0, tileColors[n])
+        return new CompositeSprite(["res/tile_bg.png", "res/tile_" + n + ".png"]).setCompColor(0, tileColors[n])
     },
 
     restartButton: function() {
