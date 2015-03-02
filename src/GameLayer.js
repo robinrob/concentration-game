@@ -2,6 +2,7 @@ var GameLayer = cc.Layer.extend({
     nTiles: null,
     tiles: null,
     pairs: null,
+    _checking: null,
 
     init:function () {
         this._super();
@@ -46,6 +47,14 @@ var GameLayer = cc.Layer.extend({
         }
     },
 
+    isChecking: function() {
+        return this._checking
+    },
+
+    setIsChecking: function(bool) {
+        this._checking = bool
+    },
+
     takeRandom: function(items) {
         var index = Math.round(Math.random() * (items.length - 1))
         var item = items[index]
@@ -54,25 +63,34 @@ var GameLayer = cc.Layer.extend({
     },
 
     checkPairs: function() {
-        mrrobinsmith.counter = 0
-        var turned = []
+        if (!this.isChecking()) {
+            this.setIsChecking(true)
+            cc.log("listening")
+            var that = this
+            var pause = setTimeout(function () {
+                mrrobinsmith.counter = 0
 
-        this.tiles.forEach(function(tile) {
-            if (tile.isTurned() && !tile.isLocked())  {
-                turned.push(tile)
-            }
-        })
+                var turned = []
+                that.tiles.forEach(function (tile) {
+                    if (tile.isTurned() && !tile.isLocked()) {
+                        turned.push(tile)
+                    }
+                })
 
-        var match = this.checkMatch(turned)
+                var match = that.checkMatch(turned)
 
-        turned.forEach(function(tile) {
-            if (match) {
-                tile.lock()
-            }
-            else {
-                tile.toggle()
-            }
-        }, this)
+                turned.forEach(function (tile) {
+                    if (match) {
+                        tile.lock()
+                    }
+                    else {
+
+                        tile.toggle()
+                    }
+                }, that)
+            }, 1000)
+            this.setIsChecking(false)
+        }
     },
 
     checkMatch: function(tiles) {

@@ -14,11 +14,19 @@ var Tile = CompositeSprite.extend({
         this._isLocked = false
         this._found = false
 
-        cc.eventManager.addListener(ui.touchListener(this._touchAction), this);
+        cc.eventManager.addListener(ui.touchListener(this.turnOver), this);
     },
 
-    _touchAction: function() {
-        this.turnOver()
+    turnOver: function() {
+        if (!this.isTurned()) {
+            if (mrrobinsmith.counter < 2) {
+                this.toggle()
+                ++mrrobinsmith.counter
+            }
+            if (mrrobinsmith.counter >= 2 && !this.getParent().isChecking()) {
+                this.getParent().checkPairs()
+            }
+        }
     },
 
     isTurned: function() {
@@ -29,29 +37,15 @@ var Tile = CompositeSprite.extend({
         this._isTurned = !this._isTurned
     },
 
-    turnOver: function() {
-        if (!this.isTurned()) {
-            if (mrrobinsmith.counter < 2) {
-                this.toggle()
-            }
-        }
-        ++mrrobinsmith.counter
-        if (mrrobinsmith.counter > 2) {
-            this.getParent().checkPairs()
-        }
-    },
-
     toggle: function() {
-        this.removeAllChildren()
-
         this.toggleIsTurned()
 
         if (this.isTurned()) {
-            this.addChildren([mrrobinsmith.res["tile" + this.tag]])
+            this.setChildren([mrrobinsmith.res["tile" + this.tag]])
             this.setColor(tileColors[this.tag])
         }
         else {
-            this.addChildren([mrrobinsmith.res.tile_cover])
+            this.setChildren([mrrobinsmith.res.tile_cover])
             this.color = this._start_color
         }
     },
