@@ -11,7 +11,18 @@ var colors = {
     blue: new cc.color(6, 87, 234, 255)
 }
 
-var mrrobinsmith = {
+var tileColors = [
+    colors.yellow,
+    colors.green,
+    colors.purple,
+    colors.pink,
+    colors.orange,
+    colors.maroon,
+    colors.brown,
+    colors.blue
+]
+
+var g = {
     buttonOuterColor: colors.purple,
     buttonInnerColor: colors.pink,
     buttonTextColor: colors.purple,
@@ -42,6 +53,10 @@ var res = {
     tile6: "assets/tiles/tile_6.png",
     tile7: "assets/tiles/tile_7.png"
 };
+
+mrrobinsmith.g = g
+
+mrrobinsmith.tileColors = tileColors
 
 mrrobinsmith.res = res
 

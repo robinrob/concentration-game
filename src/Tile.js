@@ -13,20 +13,6 @@ var Tile = CompositeSprite.extend({
         this._isTurned = false
         this._isLocked = false
         this._found = false
-
-        cc.eventManager.addListener(ui.touchListener(this.turnOver), this);
-    },
-
-    turnOver: function() {
-        if (!this.isTurned()) {
-            if (mrrobinsmith.counter < 2) {
-                this.toggle()
-                ++mrrobinsmith.counter
-            }
-            if (mrrobinsmith.counter >= 2 && !this.getParent().isChecking()) {
-                this.getParent().checkPairs()
-            }
-        }
     },
 
     isTurned: function() {
@@ -41,13 +27,21 @@ var Tile = CompositeSprite.extend({
         this.toggleIsTurned()
 
         if (this.isTurned()) {
-            this.setChildren([mrrobinsmith.res["tile" + this.tag]])
-            this.setColor(tileColors[this.tag])
+            this.cover()
         }
         else {
-            this.setChildren([mrrobinsmith.res.tile_cover])
-            this.color = this._start_color
+            this.show()
         }
+    },
+
+    cover: function() {
+        this.setChildren([mrrobinsmith.res.tile_cover])
+        this.color = this._start_color
+    },
+
+    show: function() {
+        this.setChildren([mrrobinsmith.res["tile" + this.tag]])
+        this.setColor(mrrobinsmith.tileColors[this.tag])
     },
 
     isLocked: function() {
@@ -56,9 +50,5 @@ var Tile = CompositeSprite.extend({
 
     lock: function() {
         this._isLocked = true
-    },
-
-    found: function() {
-        this._found = true
     }
 });
