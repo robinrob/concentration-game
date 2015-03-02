@@ -1,4 +1,4 @@
-var MenuLayer = cc.LayerColor.extend({
+var StartLayer = cc.LayerColor.extend({
     // constructor
     ctor:function () {
         cc.log("MenuLayer.ctor ...")
