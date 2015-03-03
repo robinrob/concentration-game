@@ -3,7 +3,6 @@ var StartLayer = cc.LayerColor.extend({
     ctor:function () {
         cc.log("MenuLayer.ctor ...")
         this._super();
-        this.init();
     },
 
     init:function () {
