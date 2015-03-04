@@ -16,7 +16,6 @@
         "src/GameScene.js",
         "src/globals.js",
         "src/StartScene.js",
-        "src/RestartLayer.js",
         "src/StartLayer.js",
         "src/Tile.js",
         "src/ui.js"

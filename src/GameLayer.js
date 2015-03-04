@@ -17,7 +17,7 @@ var GameLayer = cc.Layer.extend({
         this.tiles = []
 
         this._constructListener()
-        this._constructBackground()
+        //this._constructBackground()
         this._constructRestartMenu()
         this._constructStats()
         this.setMoves(0)
