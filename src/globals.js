@@ -1,10 +1,6 @@
-var mrrobinsmith = {
-    buttonOuterColor: new cc.color(0, 255, 0, 0),
-    buttonInnerColor: new cc.color(0, 0, 255, 0),
-    buttonTextColor: new cc.color(0, 255, 0, 0)
-}
+mrrobinsmith = {}
 
-var colors = {
+mrrobinsmith.colors = {
     yellow: new cc.color(255, 255, 0, 255),
     green: new cc.color(0, 255, 0, 255),
     purple: new cc.color(174, 0, 255, 255),
@@ -15,26 +11,24 @@ var colors = {
     blue: new cc.color(6, 87, 234, 255)
 }
 
-var tileColors = [
-    colors.yellow,
-    colors.green,
-    colors.purple,
-    colors.pink,
-    colors.orange,
-    colors.maroon,
-    colors.brown,
-    colors.blue
+mrrobinsmith.tileColors = [
+    mrrobinsmith.colors.yellow,
+    mrrobinsmith.colors.green,
+    mrrobinsmith.colors.purple,
+    mrrobinsmith.colors.pink,
+    mrrobinsmith.colors.orange,
+    mrrobinsmith.colors.maroon,
+    mrrobinsmith.colors.brown,
+    mrrobinsmith.colors.blue
 ]
 
-var g = {
-    buttonOuterColor: colors.purple,
-    buttonInnerColor: colors.pink,
-    buttonTextColor: colors.purple,
-
-    counter: 0
+mrrobinsmith.g = {
+    buttonOuterColor: mrrobinsmith.colors.purple,
+    buttonInnerColor: mrrobinsmith.colors.pink,
+    buttonTextColor: mrrobinsmith.colors.purple
 }
 
-var res = {
+mrrobinsmith.res = {
     button_outer_png: "res/buttons/button-outer.png",
 
     button_n_inner_png: "res/buttons/button_n-inner.png",
@@ -56,15 +50,9 @@ var res = {
     tile5: "res/tiles/tile_5.png",
     tile6: "res/tiles/tile_6.png",
     tile7: "res/tiles/tile_7.png",
-
+    
     arial: "res/Arial.ttf"
 };
-
-mrrobinsmith.g = g
-
-mrrobinsmith.tileColors = tileColors
-
-mrrobinsmith.res = res
 
 mrrobinsmith.resources = [];
 for (var i in mrrobinsmith.res) {
