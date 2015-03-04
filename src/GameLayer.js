@@ -3,6 +3,7 @@ var GameLayer = cc.Layer.extend({
     MARGIN: 49,
     GAP: 10,
     FONT_SIZE: 32,
+    TILE_SIZE: 64,
 
     gameArray: null,
     tiles: null,
@@ -15,12 +16,6 @@ var GameLayer = cc.Layer.extend({
         this._super()
 
         this.tiles = []
-
-        this._constructListener()
-        this._constructBackground()
-        this._constructRestartMenu()
-        this._constructStats()
-        this.setMoves(0)
 
         this.init()
     },
@@ -63,14 +58,22 @@ var GameLayer = cc.Layer.extend({
     _constructStats: function() {
         var winSize = cc.director.getWinSize();
 
-        var lbl = cc.LabelTTF.create("", "res/Arial.ttf", 20, cc.size(100, 24), cc.TEXT_ALIGNMENT_CENTER, cc.TEXT_ALIGNMENT_CENTER);
+        var width = this.FONT_SIZE * 7
+        var height = this.FONT_SIZE
+        var lbl = cc.LabelTTF.create("", "res/Arial.ttf", this.FONT_SIZE, cc.size(width, height), cc.TEXT_ALIGNMENT_LEFT, cc.TEXT_ALIGNMENT_CENTER);
+        lbl.setPosition((width + this.FONT_SIZE) / 2, winSize.height - height)
         this.addChild(lbl)
-        lbl.setPosition(this.FONT_SIZE + this.MARGIN, winSize.height - 25)
         this.scoreLabel = lbl
     },
 
     init: function() {
         this._super()
+
+        this._constructListener()
+        this._constructBackground()
+        this._constructRestartMenu()
+        this._constructStats()
+        this.setMoves(0)
 
         this.gameArray = this.GAME_ARRAY.concat()
         this.turned = []
@@ -89,8 +92,8 @@ var GameLayer = cc.Layer.extend({
             this.tiles.push(tile)
             this.addChild(tile, 1);
 
-            var x = this.MARGIN + ((i % 4) * (64 + this.GAP))
-            var y = 400 - (Math.floor(i / 4) * (64 + this.GAP))
+            var x = this.MARGIN + ((i % 4) * (this.TILE_SIZE + this.GAP))
+            var y = 400 - (Math.floor(i / 4) * (this.TILE_SIZE + this.GAP))
             tile.setPosition(x, y);
         }
     },
