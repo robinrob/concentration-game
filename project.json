@@ -2,26 +2,23 @@
     "project_type": "javascript",
 
     "debugMode" : 1,
-    "showFPS" : false,
+    "showFPS" : true,
     "frameRate" : 60,
     "id" : "gameCanvas",
     "renderMode" : 0,
     "engineDir":"frameworks/cocos2d-html5",
 
-    "modules" : ["cocos2d","chipmunk","gui"],
+    "modules" : ["cocos2d"],
 
     "jsList" : [
-        "src/StartScene.js",
-        "src/StartLayer.js",
-        "src/AnimationLayer.js",
-        "src/Ball.js",
         "src/CompositeSprite.js",
-        "src/ConsoleLayer.js",
+        "src/GameLayer.js",
+        "src/GameScene.js",
         "src/globals.js",
-        "src/MenuLayer.js",
-        "src/MenuScene.js",
-        "src/Platform.js",
-        "src/PlayScene.js",
+        "src/StartScene.js",
+        "src/RestartLayer.js",
+        "src/StartLayer.js",
+        "src/Tile.js",
         "src/ui.js"
     ]
 }

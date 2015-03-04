@@ -23,6 +23,6 @@ var StartLayer = cc.Layer.extend({
 
     onPlay : function(){
         cc.log("MenuLayer.onPlay ...")
-        //cc.director.runScene(new StartScene());
+        cc.director.runScene(new GameScene());
     }
 });

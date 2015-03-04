@@ -1,18 +1,20 @@
 var Tile = CompositeSprite.extend({
-    tag: null,
+    _tag: null,
     _start_color: null,
     _isTurned: null,
     _isLocked: null,
-    _found: null,
 
     ctor:function(num) {
         this._super([mrrobinsmith.res.tile_bg, mrrobinsmith.res.tile_cover])
 
-        this.tag = num
+        this._tag = num
         this._start_color = this.color
         this._isTurned = false
         this._isLocked = false
-        this._found = false
+    },
+
+    fuckingTag: function() {
+        return this._tag
     },
 
     isTurned: function() {
@@ -40,8 +42,8 @@ var Tile = CompositeSprite.extend({
     },
 
     show: function() {
-        this.setChildren([mrrobinsmith.res["tile" + this.tag]])
-        this.setColor(mrrobinsmith.tileColors[this.tag])
+        this.setChildren([mrrobinsmith.res["tile" + this._tag]])
+        this.setColor(mrrobinsmith.tileColors[this._tag])
     },
 
     isLocked: function() {

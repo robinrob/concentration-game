@@ -44,7 +44,18 @@ var res = {
     start_s_text_png: "res/buttons/start_s-text.png",
 
     restart_n_text_png: "res/buttons/restart_n-text.png",
-    restart_s_text_png: "res/buttons/restart_s-text.png"
+    restart_s_text_png: "res/buttons/restart_s-text.png",
+
+    tile_bg: "res/tiles/tile_bg.png",
+    tile_cover: "res/tiles/tile_cover.png",
+    tile0: "res/tiles/tile_0.png",
+    tile1: "res/tiles/tile_1.png",
+    tile2: "res/tiles/tile_2.png",
+    tile3: "res/tiles/tile_3.png",
+    tile4: "res/tiles/tile_4.png",
+    tile5: "res/tiles/tile_5.png",
+    tile6: "res/tiles/tile_6.png",
+    tile7: "res/tiles/tile_7.png"
 };
 
 mrrobinsmith.g = g

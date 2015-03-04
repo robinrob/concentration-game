@@ -14,13 +14,13 @@ var GameLayer = cc.Layer.extend({
     ctor: function() {
         this._super()
 
-        this._className = "GameLayer"
         this.tiles = []
 
         this._constructListener()
         this._constructBackground()
         this._constructRestartMenu()
         this._constructStats()
+        this.setMoves(0)
 
         this.init()
     },
@@ -127,11 +127,11 @@ var GameLayer = cc.Layer.extend({
 
     checkMatch: function() {
         var match = true
-        var tag = this.turned[0].tag
+        var tag = this.turned[0].fuckingTag()
 
         var that = this
         this.turned.forEach(function(tile) {
-            if (tile.tag != tag) {
+            if (tile.fuckingTag() != tag) {
                 match = false
             }
         }, this)
