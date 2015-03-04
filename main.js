@@ -55,7 +55,7 @@ cc.game.onStart = function(){
     cc.director.setProjection(cc.Director.PROJECTION_2D);
 
     cc.LoaderScene.preload(mrrobinsmith.resources, function () {
-        cc.director.runScene(new MenuScene());
+        cc.director.runScene(new StartScene());
     }, this);
 };
 cc.game.run();

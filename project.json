@@ -11,6 +11,8 @@
     "modules" : ["cocos2d","chipmunk","gui"],
 
     "jsList" : [
+        "src/StartScene.js",
+        "src/StartLayer.js",
         "src/AnimationLayer.js",
         "src/Ball.js",
         "src/CompositeSprite.js",

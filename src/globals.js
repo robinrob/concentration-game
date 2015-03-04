@@ -4,6 +4,36 @@ var mrrobinsmith = {
     buttonTextColor: new cc.color(0, 255, 0, 0)
 }
 
+var colors = {
+    yellow: new cc.color(255, 255, 0, 255),
+    green: new cc.color(0, 255, 0, 255),
+    purple: new cc.color(174, 0, 255, 255),
+    pink: new cc.color(255, 0, 255, 255),
+    orange: new cc.color(255, 78, 0, 255),
+    maroon: new cc.color(172, 6, 84, 255),
+    brown: new cc.color(145, 58, 6, 255),
+    blue: new cc.color(6, 87, 234, 255)
+}
+
+var tileColors = [
+    colors.yellow,
+    colors.green,
+    colors.purple,
+    colors.pink,
+    colors.orange,
+    colors.maroon,
+    colors.brown,
+    colors.blue
+]
+
+var g = {
+    buttonOuterColor: colors.purple,
+    buttonInnerColor: colors.pink,
+    buttonTextColor: colors.purple,
+
+    counter: 0
+}
+
 var res = {
     button_outer_png: "res/buttons/button-outer.png",
 
@@ -16,6 +46,10 @@ var res = {
     restart_n_text_png: "res/buttons/restart_n-text.png",
     restart_s_text_png: "res/buttons/restart_s-text.png"
 };
+
+mrrobinsmith.g = g
+
+mrrobinsmith.tileColors = tileColors
 
 mrrobinsmith.res = res
 
