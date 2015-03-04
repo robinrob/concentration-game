@@ -1,13 +1,13 @@
 var GameLayer = cc.Layer.extend({
     _gameArray: [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7],
     gameArray: null,
-    margin: 49,
-    gap: 10,
-    fontSize: 32,
+    robMargin: 49,
+    robGap: 10,
+    robFontSize: 32,
 
     tiles: null,
     turned: null,
-    listener: null,
+    robListener: null,
     moves: null,
     scoreLabel: null,
 
@@ -17,7 +17,7 @@ var GameLayer = cc.Layer.extend({
         this.tiles = []
 
         this._constructListener()
-        //this._constructBackground()
+        this._constructBackground()
         this._constructRestartMenu()
         this._constructStats()
         this.setMoves(0)
@@ -27,7 +27,7 @@ var GameLayer = cc.Layer.extend({
 
     _constructListener: function() {
         var that = this
-        this.listener = cc.EventListener.create({
+        this.robListener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
@@ -61,15 +61,17 @@ var GameLayer = cc.Layer.extend({
     },
 
     _constructStats: function() {
-        var winSize = cc.director.getWinSize();
-
-        var lbl = cc.LabelTTF.create("","Arial","32",cc.TEXT_ALIGNMENT_CENTER);
-        this.addChild(lbl)
-        lbl.setPosition(this.fontSize + this.margin, winSize.height - 25)
-        this.scoreLabel = lbl
+        //var winSize = cc.director.getWinSize();
+        //
+        //var lbl = cc.LabelTTF.create("","Arial","32",cc.TEXT_ALIGNMENT_CENTER);
+        //this.addChild(lbl)
+        //lbl.setPosition(this.robFontSize + this.robMargin, winSize.height - 25)
+        //this.scoreLabel = lbl
     },
 
     init: function() {
+        this._super()
+
         this.gameArray = this._gameArray.concat()
         this.turned = []
         this.setMoves(0)
@@ -83,19 +85,19 @@ var GameLayer = cc.Layer.extend({
         var nTiles = this.gameArray.length
         for(i = 0; i < nTiles; i++){
             var tile = new Tile(this.takeRandom(this.gameArray))
-            cc.eventManager.addListener(this.listener.clone(), tile);
+            cc.eventManager.addListener(this.robListener.clone(), tile);
             this.tiles.push(tile)
             this.addChild(tile, 1);
 
-            var x = this.margin + ((i % 4) * (64 + this.gap))
-            var y = 400 - (Math.floor(i / 4) * (64 + this.gap))
+            var x = this.robMargin + ((i % 4) * (64 + this.robGap))
+            var y = 400 - (Math.floor(i / 4) * (64 + this.robGap))
             tile.setPosition(x, y);
         }
     },
 
     setMoves: function(moves) {
         this.moves = moves
-        this.scoreLabel.setString("Moves: "+moves);
+        //this.scoreLabel.setString("Moves: "+moves);
     },
 
     incMoves: function() {

@@ -3,7 +3,6 @@ var GameScene = cc.Scene.extend({
         this._super();
 
         var gameLayer = new GameLayer();
-        gameLayer.init();
 
         this.addChild(gameLayer);
     }
