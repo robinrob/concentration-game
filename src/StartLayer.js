@@ -1,28 +1,28 @@
-var StartLayer = cc.LayerColor.extend({
-    // constructor
-    ctor:function () {
+var StartLayer = cc.Layer.extend({
+    ctor : function(){
         cc.log("MenuLayer.ctor ...")
         this._super();
     },
-
-    init:function () {
+    init:function(){
         cc.log("MenuLayer.init ...")
-        this._super(cc.color(0, 0, 0, 100));
-        var winSize = cc.director.getWinSize();
+        this._super();
 
-        var centerPos = cc.p(winSize.width / 2, winSize.height / 2);
+        var winsize = cc.director.getWinSize();
+        var centerpos = cc.p(winsize.width / 2, winsize.height / 2);
 
         var menuItemPlay = new cc.MenuItemSprite(
             ui.startButton().normal,
             ui.startButton().selected,
-            this.onStart, this);
+            this.onPlay, this);
         var menu = new cc.Menu(menuItemPlay);
-        menu.setPosition(centerPos);
+        menu.setPosition(centerpos);
         this.addChild(menu);
+
+        //this.onPlay()
     },
 
-    onStart:function (sender) {
-        cc.log("GameOver.onStart ...")
-        cc.director.runScene(new GameScene());
+    onPlay : function(){
+        cc.log("MenuLayer.onPlay ...")
+        //cc.director.runScene(new StartScene());
     }
 });

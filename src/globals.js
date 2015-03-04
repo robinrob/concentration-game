@@ -1,4 +1,8 @@
-var mrrobinsmith = {}
+var mrrobinsmith = {
+    buttonOuterColor: new cc.color(0, 255, 0, 0),
+    buttonInnerColor: new cc.color(0, 0, 255, 0),
+    buttonTextColor: new cc.color(0, 255, 0, 0)
+}
 
 var colors = {
     yellow: new cc.color(255, 255, 0, 255),

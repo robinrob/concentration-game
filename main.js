@@ -31,7 +31,7 @@
     //      1 - Forced to use canvas renderer
     //      2 - Forced to use WebGL renderer, but this will be ignored on mobile browsers
 
-    "engineDir"     : "frameworks/cocos2d-html5/",
+    "engineDir"     : "frameworks/cocos2d-html5/",c
     // In debug mode, if you use the whole engine to develop your game, you should specify its relative path with "engineDir",
     // but if you are using a single engine file, you can ignore it.
 
@@ -47,10 +47,13 @@
  *
  */
 
+
 cc.game.onStart = function(){
     cc.view.adjustViewPort(true);
-    cc.view.setDesignResolutionSize(320, 480, cc.ResolutionPolicy.SHOW_ALL);
+    cc.view.setDesignResolutionSize(480,720,cc.ResolutionPolicy.SHOW_ALL);
     cc.view.resizeWithBrowserSize(true);
+    cc.director.setProjection(cc.Director.PROJECTION_2D);
+
     cc.LoaderScene.preload(mrrobinsmith.resources, function () {
         cc.director.runScene(new StartScene());
     }, this);
