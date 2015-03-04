@@ -1,13 +1,13 @@
 var GameLayer = cc.Layer.extend({
-    _gameArray: [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7],
-    gameArray: null,
-    robMargin: 49,
-    robGap: 10,
-    robFontSize: 32,
+    GAME_ARRAY: [0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7],
+    MARGIN: 49,
+    GAP: 10,
+    FONT_SIZE: 32,
 
+    gameArray: null,
     tiles: null,
     turned: null,
-    robListener: null,
+    listener: null,
     moves: null,
     scoreLabel: null,
 
@@ -27,7 +27,7 @@ var GameLayer = cc.Layer.extend({
 
     _constructListener: function() {
         var that = this
-        this.robListener = cc.EventListener.create({
+        this.listener = cc.EventListener.create({
             event: cc.EventListener.TOUCH_ONE_BY_ONE,
             swallowTouches: true,
             onTouchBegan: function (touch, event) {
@@ -65,14 +65,14 @@ var GameLayer = cc.Layer.extend({
 
         var lbl = cc.LabelTTF.create("", "res/Arial.ttf", 20, cc.size(100, 24), cc.TEXT_ALIGNMENT_CENTER, cc.TEXT_ALIGNMENT_CENTER);
         this.addChild(lbl)
-        lbl.setPosition(this.robFontSize + this.robMargin, winSize.height - 25)
+        lbl.setPosition(this.FONT_SIZE + this.MARGIN, winSize.height - 25)
         this.scoreLabel = lbl
     },
 
     init: function() {
         this._super()
 
-        this.gameArray = this._gameArray.concat()
+        this.gameArray = this.GAME_ARRAY.concat()
         this.turned = []
         this.setMoves(0)
 
@@ -85,19 +85,19 @@ var GameLayer = cc.Layer.extend({
         var nTiles = this.gameArray.length
         for(i = 0; i < nTiles; i++){
             var tile = new Tile(this.takeRandom(this.gameArray))
-            cc.eventManager.addListener(this.robListener.clone(), tile);
+            cc.eventManager.addListener(this.listener.clone(), tile);
             this.tiles.push(tile)
             this.addChild(tile, 1);
 
-            var x = this.robMargin + ((i % 4) * (64 + this.robGap))
-            var y = 400 - (Math.floor(i / 4) * (64 + this.robGap))
+            var x = this.MARGIN + ((i % 4) * (64 + this.GAP))
+            var y = 400 - (Math.floor(i / 4) * (64 + this.GAP))
             tile.setPosition(x, y);
         }
     },
 
     setMoves: function(moves) {
         this.moves = moves
-        this.scoreLabel.setString("Moves: "+moves);
+        this.scoreLabel.setString("Moves: " + moves);
     },
 
     incMoves: function() {
