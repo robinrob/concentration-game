@@ -55,7 +55,9 @@ var res = {
     tile4: "res/tiles/tile_4.png",
     tile5: "res/tiles/tile_5.png",
     tile6: "res/tiles/tile_6.png",
-    tile7: "res/tiles/tile_7.png"
+    tile7: "res/tiles/tile_7.png",
+
+    arial: "res/Arial.ttf"
 };
 
 mrrobinsmith.g = g

@@ -61,12 +61,12 @@ var GameLayer = cc.Layer.extend({
     },
 
     _constructStats: function() {
-        //var winSize = cc.director.getWinSize();
-        //
-        //var lbl = cc.LabelTTF.create("","Arial","32",cc.TEXT_ALIGNMENT_CENTER);
-        //this.addChild(lbl)
-        //lbl.setPosition(this.robFontSize + this.robMargin, winSize.height - 25)
-        //this.scoreLabel = lbl
+        var winSize = cc.director.getWinSize();
+
+        var lbl = cc.LabelTTF.create("", "res/Arial.ttf", 20, cc.size(100, 24), cc.TEXT_ALIGNMENT_CENTER, cc.TEXT_ALIGNMENT_CENTER);
+        this.addChild(lbl)
+        lbl.setPosition(this.robFontSize + this.robMargin, winSize.height - 25)
+        this.scoreLabel = lbl
     },
 
     init: function() {
@@ -97,7 +97,7 @@ var GameLayer = cc.Layer.extend({
 
     setMoves: function(moves) {
         this.moves = moves
-        //this.scoreLabel.setString("Moves: "+moves);
+        this.scoreLabel.setString("Moves: "+moves);
     },
 
     incMoves: function() {
@@ -132,7 +132,7 @@ var GameLayer = cc.Layer.extend({
         var tag = this.turned[0].fuckingTag()
 
         var that = this
-        this.turned.forEach(function(tile) {
+        this.turned.forEach(function (tile) {
             if (tile.fuckingTag() != tag) {
                 match = false
             }
@@ -148,5 +148,12 @@ var GameLayer = cc.Layer.extend({
         }, that)
 
         this.turned = []
+    },
+
+    loadTtf: function(name) {
+        if (cc.sys.os === "Android")
+            return "res/" + name + ".ttf";
+
+        return name;
     }
 });
