@@ -52,5 +52,9 @@ var Tile = CompositeSprite.extend({
 
     lock: function() {
         this._isLocked = true
+    },
+
+    name: function() {
+        return mrrobinsmith.tileNames[this.tag]
     }
 });
